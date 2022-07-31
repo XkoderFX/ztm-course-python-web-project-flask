@@ -17,6 +17,10 @@ class Server:
         self._init__routes()
 
     def _init__routes(self):
+        
+        @self._app.route("/")
+        def home():
+            return render_template('index.html')
         @self._app.route("/<string:page_name>")
         def index(page_name):
             return render_template(page_name)
